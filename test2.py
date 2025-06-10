@@ -14,11 +14,29 @@ def long_running_function():
     return kermit 
 
 long_running_function()
-st.header("hello wroldl")
-st.button("click meEE", type = "primary")
 
-if st.button("click me", type="primary"):
-    st.text("you beat uo children!")
+def turnsfalse():
+    st.session_state.clicked = False
+# Initialize murders in session state if not already present
+if "murders" not in st.session_state:
+    st.session_state.murders = 0
+    st.session_state.clicked = False
+st.header("hello wroldl")
+st.button("click meEE", type="primary", on_click=turnsfalse)
+
+st.warning("⚠️ i warned you about this page :(")
+# Display the metric at the desired position
+if st.session_state.clicked == True:
+    st.metric(label="murders", value=st.session_state.murders, delta=1, help="how many children you beat up")
+
+def gimmedata():
+    st.session_state.murders += 1
+
+if st.button("click me", type="primary", on_click=gimmedata):
+    st.text("you beat up children!")
+    st.session_state.clicked = True 
+
+
 gayness = st.select_slider(label = "how pride are you", options = ["straight", "gay", "lesbian", "asexual", "bisexual", "pansexual"])
 if gayness != "straight":
     st.header("happy pride month you werirdo")
