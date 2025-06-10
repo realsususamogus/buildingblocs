@@ -35,20 +35,25 @@ def gimmedata():
 if st.button("click me", type="primary", on_click=gimmedata):
     st.text("you beat up children!")
     st.session_state.clicked = True 
+burydate = st.date_input("what is your birthday", min_value= "2000-01-01")
 
+if st.session_state.clicked == True:
+    st.text(f"date you buried children: {burydate}")
 
 gayness = st.select_slider(label = "how pride are you", options = ["straight", "gay", "lesbian", "asexual", "bisexual", "pansexual"])
 if gayness != "straight":
     st.header("happy pride month you werirdo")
 
 
+st.link_button("free A+ results slip", url="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D")
+st.segmented_control("whart best desctirbes you", ["dead", "questioning existence", "alive"])
 goal = st.text_input("your meesgae")
 skibidi = st.slider(min_value=0, max_value = 100, value = 50, label="skibidi")
 st.text(f"Your goal is: {goal}")
 
 
-st.image(long_running_function(), caption="kermit falling", width=300)
-st.header("ai tutor cuz i lazy")
+st.image(long_running_function(), caption="default state of humans", width=300)
+st.header("free ai tutor thank me later ;)")
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [{"role": "ai", "message": "hi im ur tutor ask me anything"}]
